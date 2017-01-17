@@ -16,7 +16,7 @@ Getting up and running is as easy as 1, 2, 3.
     ```
     cd path/to/yeller-chat; npm install
 
-    cd client; npm install
+    cd app; npm install
     ```
 
 3. Start your app
@@ -28,7 +28,7 @@ Getting up and running is as easy as 1, 2, 3.
 4. (Build client)
 
     ```
-        cd cliend
+        cd app
         gulp
     ```
 
@@ -51,6 +51,7 @@ Simply run `npm test` and all your tests in the `test/` directory will be run.
 - [ ] Sound bank
 - [ ] Upload sound components
 - [ ] server compress sounds
+- [ ] clean out package.json
 
 ## Help
 
