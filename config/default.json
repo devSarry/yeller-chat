@@ -1,7 +1,7 @@
 {
   "host": "localhost",
   "port": 3030,
-  "nedb": "../data/",
+  "sqlite": "../data/database.sqlite",
   "public": "../public/",
   "auth": {
     "token": {

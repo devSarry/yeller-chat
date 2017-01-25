@@ -7,27 +7,29 @@
                         <h1 class="title">
                             Register an Account
                         </h1>
+
+
                         <div class="box">
                             <label class="label">Name</label>
                             <p class="control">
-                                <input class="input" type="text" placeholder="John Smith">
+                                <input class="input" type="text" placeholder="John Smith" v-model="user.name">
                             </p>
                             <label class="label">Username</label>
                             <p class="control">
-                                <input class="input" type="text" placeholder="jsmith">
+                                <input class="input" type="text" placeholder="jsmith" v-model="user.username">
                             </p>
                             <label class="label">Email</label>
                             <p class="control">
-                                <input class="input" type="text" placeholder="jsmith@example.org">
+                                <input class="input" type="text" placeholder="jsmith@example.org" v-model="user.email">
                             </p>
                             <hr>
                             <label class="label">Password</label>
                             <p class="control">
-                                <input class="input" type="password" placeholder="●●●●●●●">
+                                <input class="input" type="password" placeholder="●●●●●●●" v-model="user.password">
                             </p>
                             <label class="label">Confirm Password</label>
                             <p class="control">
-                                <input class="input" type="password" placeholder="●●●●●●●">
+                                <input class="input" type="password" placeholder="●●●●●●●" v-model="user.password_confirm">
                             </p>
                             <hr>
                             <p class="control">
@@ -36,7 +38,7 @@
                             </p>
                         </div>
                         <p class="has-text-centered">
-                            <a href="login.html">Login</a>
+                            <router-link to="login">Login</a>
                             |
                             <a href="#">Need help?</a>
                         </p>

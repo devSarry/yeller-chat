@@ -1,30 +1,29 @@
 'use strict';
 
 const service = require('feathers-sequelize');
-const message = require('./message-model');
+const channel = require('./channel-model');
 const hooks = require('./hooks');
 
 module.exports = function(){
   const app = this;
 
   const options = {
-    Model: message(app.get('sequelize')),
+    Model: channel(app.get('sequelize')),
     paginate: {
       default: 5,
-      max: 25,
-      $sort: { 'createdAt': -1}
+      max: 25
     }
   };
 
   // Initialize our service with any options it requires
-  app.use('/messages', service(options));
+  app.use('/channels', service(options));
 
   // Get our initialize service to that we can bind hooks
-  const messageService = app.service('/messages');
+  const channelService = app.service('/channels');
 
   // Set up our before hooks
-  messageService.before(hooks.before);
+  channelService.before(hooks.before);
 
   // Set up our after hooks
-  messageService.after(hooks.after);
+  channelService.after(hooks.after);
 };

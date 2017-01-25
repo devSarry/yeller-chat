@@ -1,27 +1,25 @@
-# vue-feathers-client
-
-Boilerplate for Vue 2.0 projects backed by FeathersJS.
+# Yeller-Chat app client
 
 ## Setup
+
 ```
-$ git clone https://github.com:/cklmercer/vue-feathers-client
-```
-```
-$ cd vue-feathers-client
-```
-```
-$ yarn install
+$ yarn install (or) npm install
 ```
 
 ## Routing
-This boilerplate project uses the official VueJS router, [vue-router](https://github.com/vuejs/vue-router).
-Out of the box you'll find you're already setup to build blazing fast SPAs.
+This project uses the official VueJS router, [vue-router](https://github.com/vuejs/vue-router).
 
 To get started, checkout the `./app/router` directory.
 
+Basic workflow to create a route
+    1. Open `./app/router/app-controller.js`
+    2. Add a route object ex:
+    ```js
+        { path: '/path', component: require('../components/pages/Home.vue') },
+    ```
+
 ## Store
 This boilerplate project uses the official VueJS store library, [vuex](https://github.com/vuejs/vuex).
-`Vuex` makes managing your complex application's state a cinch. `Vuex` also support "time-travel" debugging.
 
 To get started, checkout the `./app/store` directory.
 

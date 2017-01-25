@@ -18,6 +18,11 @@ Getting up and running is as easy as 1, 2, 3.
 
     cd app; npm install
     ```
+3. If this is a new project create a new sqlite database file
+
+    ```
+    touch data/database.sqlite
+    ```
 
 3. Start your app
     
