@@ -11,7 +11,7 @@ module.exports = function(sequelize) {
   const user = sequelize.define('users', {
     github_id: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
     name: {
       type: Sequelize.STRING,
@@ -24,7 +24,10 @@ module.exports = function(sequelize) {
     email: {
       type: Sequelize.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
+      validate: {
+        isEmail: true
+      }
     },
     password: {
       type: Sequelize.STRING,

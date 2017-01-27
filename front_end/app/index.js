@@ -1,5 +1,5 @@
 import api from './api'
-import app from './app.vue'
+import app from './components/App.vue'
 import penis from './components/App.vue'
 import router from './router'
 import store from './store'

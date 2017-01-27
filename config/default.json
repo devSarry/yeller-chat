@@ -4,6 +4,7 @@
   "sqlite": "../data/database.sqlite",
   "public": "../public/",
   "auth": {
+    "idField": "id",
     "token": {
       "secret": "S1IH31Dtb7j8RKot5Oy0Omj6MD5Gk6H7crVNjRClNOH30AQUwiQGeijJs/zkbCinfvcze4ypA7qe9XsglxsyVA=="
     },

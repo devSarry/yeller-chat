@@ -1,7 +1,7 @@
 {
   "host": "chat-demo-app.feathersjs.com",
   "port": 80,
-  "nedb": "NEDB_BASE_PATH",
+  "sqlite": "../data/database.sqlite",
   "public": "../public/",
   "auth": {
     "token": {

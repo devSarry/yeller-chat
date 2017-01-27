@@ -3,7 +3,7 @@
         <h1>Hello World</h1>
         <input type="text" v-model="user.email">
         <input type="text" v-model="user.password">
-        <button @click="loginUser(email,password)">login</button>
+        <button @click="loginUser()">login</button>
         <hr>
         <input type="text"  v-model="newMessage">
         <button @click="sendMessage">create message</button>
@@ -43,7 +43,7 @@ export default {
         }
     },
     services: {
-        userService: 'users',
+        userService: 'user',
         messageService: 'messages'
     },
 
@@ -61,7 +61,7 @@ export default {
             //console.log(email, password);
             //console.log(this.userService.create({ email, password }))
         },
-        loginUser(email, password) {
+        loginUser() {
             this.$store.dispatch('login', this.user)
             this.messageService.find().then(results => {
                 this.messages = results.data

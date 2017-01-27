@@ -1,5 +1,10 @@
 import Test from '../components/Test.vue'
 
+
+/* Lazy loading of routes might be soemthing to look into.
+   It allows 
+* https://router.vuejs.org/en/advanced/lazy-loading.html*/
+
 export default [
     // 
     { path: '/', component: require('../components/pages/Home.vue') },

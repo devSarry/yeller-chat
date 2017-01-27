@@ -7,14 +7,16 @@ export const mutations = {
 
 export default {
     // Login
-    [mutations.LOGIN](state, { token, user }) {
+    [mutations.LOGIN](state, { token, user, error }) {
         state.token = token
         state.user = user
+        state.error = error
     },
 
     // Logout
     [mutations.LOGOUT](state) {
         state.token = null
         state.user = null
+        state.error = null
     }
 }

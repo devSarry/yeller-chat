@@ -8,6 +8,8 @@
                             Register an Account
                         </h1>
 
+                        <h1 v-if="errors">Invalid login</h1>
+
 
                         <div class="box">
                             <label class="label">Name</label>
@@ -29,16 +31,17 @@
                             </p>
                             <label class="label">Confirm Password</label>
                             <p class="control">
-                                <input class="input" type="password" placeholder="●●●●●●●" v-model="user.password_confirm">
+                                <input class="input" type="password" placeholder="●●●●●●●"
+                                       v-model="user.password_confirm">
                             </p>
                             <hr>
                             <p class="control">
-                                <button class="button is-primary">Register</button>
-                                <button class="button is-default">Cancel</button>
+                                <button class="button is-primary" @click="registerUser">Register</button>
+                                <button class="button is-default" @click="sendMessage">Cancel</button>
                             </p>
                         </div>
                         <p class="has-text-centered">
-                            <router-link to="login">Login</a>
+                            <router-link to="login">Login</router-link>
                             |
                             <a href="#">Need help?</a>
                         </p>
@@ -53,5 +56,36 @@
 <script>
     export default {
 
+        services: {
+            userService: 'users'
+        },
+
+        data() {
+            return {
+                user: { type: 'local' },
+                newMessage: '',
+                messages: [],
+            }
+        },
+        methods: {
+            registerUser() {
+                if ( this.user.password === this.user.password_confirm)
+                {
+                    this.userService.create(this.user).then(res => {
+                        this.$store.dispatch('login', this.user)
+                        console.log(res)
+                    }).catch(error => {
+                        console.error('Error authenticating!', error)
+                    })
+                }
+            }
+        },
+
+
+
     }
+
+
+
+
 </script>

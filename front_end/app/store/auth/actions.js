@@ -10,13 +10,17 @@ export default {
     login({commit}, auth) {
         api.authenticate(auth).then(function(result){
             let user = result.data;
+            //console.log('Authenticated!', user);
             let token = result.token;
             //set the user object and token
             commit(mutations.LOGIN, {user, token});
-            console.log('Authenticated!', result);
+            //console.log('Authenticated!', result);
         }).catch(function(error){
-            console.error('Error authenticating!', error);
+            commit(mutations.LOGIN, {error})
+            // console.error('Error authenticating!', error);
         });
+
+
 
     },
 
