@@ -48,10 +48,11 @@ Simply run `npm test` and all your tests in the `test/` directory will be run.
 
 ## TODO
 
-- [ ] Create User service
-- [ ] Create View for adding user "login page"
-- [ ] Render active User list
-- [ ] Validate data
+- [x] Create User service
+- [x] Create View for adding user "login page"
+- [ ] Create view for messaging window
+- [ ] ~~Render active User list~~ (No way to hook into authentication)
+- [ ] ~~Validate / sanitize data~~ (No real good solution with feathersjs)
 - [ ] Parse messages for sound emojis double squar brackets will be delimiters  \[\[ ]]
 - [ ] Sound bank
 - [ ] Upload sound components
