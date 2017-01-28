@@ -14,16 +14,23 @@
             </span>
             <div class="nav-right nav-menu" :class="{ 'is-active' : menuToggle}">
                 <!--Slot for nav bar links-->
-                <slot></slot>
+                <slot v-if="userStatus"></slot>
 
-                <span class="nav-item">
-                    <router-link to="/login" class="button">
+                <!--visitors links-->
+                <span v-if="!userStatus" class="nav-item">
+                    <router-link  to="/login" class="button">
                             Log in
                     </router-link>
 
                     <router-link to="/signup" class="button is-info">
                         Sign up
                     </router-link>
+                </span>
+                <!--Logged in user-->
+                <span v-else  class="nav-item">
+                    <button class="button is-info" @click="logout">
+                        Logout
+                    </button>
                 </span>
             </div>
         </div>
@@ -40,6 +47,9 @@
 <script>
     import YNavLogo from './YNavLogo.vue'
     export default {
+        created() {
+            console.log(this.$store.state.auth.user)
+        },
         data() {
             return {
                 menuToggle: false
@@ -47,6 +57,16 @@
         },
         components: {
             YNavLogo
+        },
+        computed: {
+            userStatus() {
+                return this.$store.state.auth.user ? true : false
+            }
+        },
+        methods: {
+            logout() {
+                this.$store.dispatch('logout')
+            }
         }
     }
 

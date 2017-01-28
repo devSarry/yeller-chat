@@ -26,6 +26,33 @@ Vue.use(VueFeathers, api)
 const Store = new Vuex.Store(store)
 const Router = new VueRouter(router)
 
+Store.dispatch('tokenLogin');
+
+
+Router.beforeEach((to, from, next) => {
+    if (to.meta.requiresAuth && !Store.state.auth.user ){
+        next({ path: 'login' })
+    } else {
+        next()
+    }
+})
+
+Router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.forVisitors)) {
+        // this route requires a visitor, check if logged in
+        // if not, redirect to login page.
+        if (Store.state.auth.user) {
+            console.log('should be auth')
+            next({path: '/chat'})
+        } else {
+            console.log('Visitor are here!')
+            next()
+        }
+    } else {
+        next() // make sure to always call next()!
+    }
+})
+
 // Sync store & router.
 sync(Store, Router)
 
@@ -35,7 +62,7 @@ require('./components')
 // Create root Vue instance.
 new Vue({
     el: '#app',
-    render: h => h(penis),
+    render: h => h(app),
     router: Router,
     store: Store
 })

@@ -7,9 +7,9 @@ import Test from '../components/Test.vue'
 
 export default [
     // 
-    { path: '/', component: require('../components/pages/Home.vue') },
-    { path: '/chat', component: require('../components/pages/Chat.vue') },
-    { path: '/test', component: Test },
-    { path: '/login', component: require('../components/pages/Login.vue') },
-    { path: '/signup', component: require('../components/pages/Signup.vue') }
+    { path: '/', component: require('../components/pages/Home.vue'), meta: {forVisitors: true} },
+    { path: '/chat', component: require('../components/pages/Chat.vue') , meta: {forVisitors: false} },
+    { path: '/test', component: Test, meta: {requiresAuth: true}},
+    { path: '/login', component: require('../components/pages/Login.vue'), meta: {forVisitors: true}},
+    { path: '/signup', component: require('../components/pages/Signup.vue'), meta: {forVisitors: true}}
 ]

@@ -25,6 +25,11 @@ module.exports = function () {
     app.configure(user);
     app.configure(message);
 
+    app.on('login' , function (data) {
+        console.log('User logged in \n\n ')
+        console.log(data)
+    })
+
     // Setup relationships
     const models = sequelize.models;
     Object.keys(models)

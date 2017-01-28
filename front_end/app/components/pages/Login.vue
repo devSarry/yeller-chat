@@ -5,10 +5,9 @@
             <div class="container">
                 <div class="columns is-vcentered">
                     <div class="column is-4 is-offset-4">
-                        <h1 v-if="error" class="title">
+                        <h1 class="title">
                             Login
                         </h1>
-
 
                         <div class="box">
                             <label class="label">Email</label>
@@ -61,7 +60,7 @@ const openMessage = (propsData = {
       direction: '',
       duration: 1500,
       container: '.messages'
-}) => {
+    }) => {
         return new MessageComponent({
            el: document.createElement('div'),
            propsData
@@ -82,6 +81,7 @@ export default {
     methods: {
         loginUser() {
             this.$store.dispatch('login', this.user)
+            this.$router.push('/chat')
         },
        openMessageWithType (type) {
           openMessage({
@@ -95,6 +95,7 @@ export default {
     computed: {
         error() {
             if(this.$store.state.auth.error) {
+                console.log(this.$store.state.auth.error)
                 this.openMessageWithType('danger')
                 return this.$store.state.auth.error
             }

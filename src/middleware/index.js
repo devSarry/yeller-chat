@@ -1,5 +1,7 @@
 'use strict';
 
+const login = require('./login');
+
 const handler = require('feathers-errors/handler');
 const notFound = require('./not-found-handler');
 const logger = require('./logger');
