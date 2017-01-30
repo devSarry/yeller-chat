@@ -10,15 +10,14 @@ const Sequelize = require('sequelize');
 
 module.exports = function () {
     const app = this;
-
+    console.log(app.service('auth'))
     fs.ensureDirSync(path.dirname(app.get('sqlite')));
     const sequelize = new Sequelize('feathers', null, null, {
         dialect: 'sqlite',
         storage: app.get('sqlite'),
         logging: true
     });
-
-
+    
     app.set('sequelize', sequelize);
 
     app.configure(authentication);
