@@ -1,5 +1,5 @@
 <template>
-    <section class="section is-large">
+    <div>
         <div class="message-box">
             <y-chat-message v-for="m in messages" :message="m"></y-chat-message>
         </div>
@@ -11,7 +11,7 @@
                 </a>
             </p>
         </div>
-    </section>
+    </div>
 </template>
 <style lang="css">
     .message-box {
@@ -49,12 +49,12 @@
     services: {
         messageService: 'messages'
     },
-    mounted() {
+    created() {
         //this.userService.on('created', user => console.log('User Created:', user))
 
         this.$services.messages.find().then(res => {
-            this.messages.push(res);
-        })
+            this.messages = res.data;
+        });
 
         this.messageService.on('created', message => {
             this.messages.push(message)
