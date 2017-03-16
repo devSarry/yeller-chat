@@ -1,6 +1,6 @@
 import api from './api'
 import app from './components/App.vue'
-import penis from './components/App.vue'
+//import app from '.app.vue'
 import router from './router'
 import store from './store'
 import Vue from 'vue'
@@ -38,18 +38,19 @@ Router.beforeEach((to, from, next) => {
 })
 
 Router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.forVisitors)) {
+    if (!to.matched.some(record => record.meta.forVisitors )) {
         // this route requires a visitor, check if logged in
         // if not, redirect to login page.
         if (Store.state.auth.user) {
-            console.log('should be auth')
-            next({path: '/chat'})
+            console.log(Store.state.auth.user)
+            console.log('should be auth');
+            next();
         } else {
-            console.log('Visitor are here!')
-            next()
+            console.log('Visitor are here!');
+            next({path: '/login'});
         }
     } else {
-        next() // make sure to always call next()!
+        next(); // make sure to always call next()!
     }
 })
 

@@ -12,16 +12,21 @@ module.exports = function(sequelize) {
     text: {
       type: Sequelize.STRING,
       allowNull: false
+    },
+    userId: {
+      type: Sequelize.STRING,
+      allowNull: true
     }
   }, {
     freezeTableName: true,
-    classMethods: {
-      associate() {
-        //message.belongsTo(sequelize.models.channels);
-        message.belongsTo(sequelize.models.users);
-      }
-    }
+    // classMethods: {
+    //   associate() {
+    //     //message.belongsTo(sequelize.models.channels);
+    //     message.belongsTo(sequelize.models.users);
+    //   }
+    // }
   });
+
 
   message.sync();
 

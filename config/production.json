@@ -1,5 +1,5 @@
 {
-  "host": "chat-demo-app.feathersjs.com",
+  "host": "chat.makkaraperuna.com",
   "port": 80,
   "sqlite": "../data/database.sqlite",
   "public": "../public/",

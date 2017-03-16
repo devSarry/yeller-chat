@@ -1,9 +1,9 @@
 import feathers from 'feathers-client'
 import socketio from 'feathers-socketio/client'
-
+//const app = require('../../src/app');
 
 const io = require('socket.io-client')
-const socket = io('http://demo.app:3030')
+const socket = io('http://localhost:3030')
 
 const api = feathers()
     .configure(feathers.hooks())
