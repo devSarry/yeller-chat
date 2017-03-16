@@ -50,10 +50,14 @@
         messageService: 'messages'
     },
     created() {
-        //this.userService.on('created', user => console.log('User Created:', user))
-
-        this.$services.messages.find().then(res => {
-            this.messages = res.data;
+        
+        this.$services.messages.find({
+            query: {
+                $sort: { createdAt: -1 },
+                $limit: 10
+            }
+        }).then(page => {
+            this.messages = page.data.reverse()
         });
 
         this.messageService.on('created', message => {
